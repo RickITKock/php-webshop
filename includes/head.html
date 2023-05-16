@@ -1,0 +1,84 @@
+<head>
+    <title>Page Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style/main_stylesheet.css" type="text/css">
+    <style>
+        body {
+            background-color: #29293d; 
+        }
+    </style>
+    <script>
+    function showItemsByCategory(event) {
+        str = event.target.innerHTML;
+        if (str == "") {
+            document.getElementById("items").innerHTML = "";
+            return;
+        } else { 
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("items").innerHTML = this.responseText;
+                }
+            };
+            xmlhttp.open("GET", "ajax_query_handlers/get_item_by_category.php?q=" + str, true);
+            xmlhttp.send();
+        }
+    }
+
+    function setCategoryParent(str) {
+        // console.log(str);
+        // alert(str);
+        if (str == "") {
+            document.getElementById("category").innerHTML = "No parent";
+            return;
+        } else { 
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("parent").value = this.responseText;
+                }
+            };
+            xmlhttp.open("GET", "ajax_query_handlers/get_category_parent.php?q=" + str, true);
+            xmlhttp.send();
+        }
+    }
+
+    function searchItems() {
+        // TODO: Change the name of the search bar
+        let str = document.forms["searchForm"]["search"].value;
+
+        if (str == "") {
+            document.getElementById("items").innerHTML = "";
+            return false;
+        } else { 
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("items").innerHTML = this.responseText;
+                }
+            };
+            xmlhttp.open("GET", "ajax_query_handlers/get_item_by_search_string.php?q=" + str, true);
+            xmlhttp.send();
+            return false;
+        }
+    }
+    </script>
+</head>
