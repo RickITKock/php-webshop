@@ -1,5 +1,5 @@
 <header>
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgba(0,0,0, 0.5);">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -50,8 +50,8 @@
         </div>
     </nav>
     <?php
-    $modal = new OptionsModalRenderer(); 
-    $modal->renderLoginModal("loginModal");
-    $modal->renderSignUpModal("signUpModal");
+    // $modal = new OptionsModalRenderer(); 
+    // $modal->renderLoginModal("loginModal");
+    // $modal->renderSignUpModal("signUpModal");
     ?>
 </header>

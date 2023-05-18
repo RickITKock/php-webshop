@@ -1,15 +1,15 @@
 <?php
 
-$items = Item::getItems();
-$itemCardRenderer = new ItemCardRenderer();
-$itemModalRenderer = new OptionsModalRenderer();
-$linkRenderer = new LinkRenderer();
+// $items = Item::getItems();
+// $itemCardRenderer = new ItemCardRenderer();
+// $itemModalRenderer = new OptionsModalRenderer();
+// $linkRenderer = new LinkRenderer();
 
-$isAdmin = false;
-if (isset($_SESSION['user_info'])) {
-    $user = unserialize($_SESSION['user_info']);
-    if ($user->user_type == "admin") $isAdmin = true;
-}
+// $isAdmin = false;
+// if (isset($_SESSION['user_info'])) {
+//     $user = unserialize($_SESSION['user_info']);
+//     if ($user->user_type == "admin") $isAdmin = true;
+// }
 
 
 /*if ($isAdmin) {
@@ -30,12 +30,12 @@ if (isset($_SESSION['user_info'])) {
         <?php $itemModalRenderer->renderItemInfoModal("info", $item); ?>
 <? endforeach;
 } else {*/
-    foreach($items as $item) {
-        echo '<div class="col-lg-4">';
-        $itemCardRenderer->renderForUser($item);
-        echo '</div>';
-        $itemModalRenderer->renderItemInfoModal("info", $item);
-    }
+    // foreach($items as $item) {
+    //     echo '<div class="col-lg-4">';
+    //     $itemCardRenderer->renderForUser($item);
+    //     echo '</div>';
+    //     $itemModalRenderer->renderItemInfoModal("info", $item);
+    // }
 // }
     
 ?>
