@@ -4,7 +4,6 @@
         private $category;
         private $parent;
 
-        // TODO: Add id and parent_id
         public function __construct($id, $category, $parent) {
             $this->id = $id;
             $this->category = $category;
@@ -34,7 +33,6 @@
             return $result;
         }
 
-        // TODO: Add parent id
         function createCategory($category, $parent) {
             $conn = self::connectWithDataBase();
             $query = "INSERT INTO categories (category, parent) VALUES (?, ?)";
@@ -45,7 +43,6 @@
             return $result;
         }
 
-        // updateCategory($previousCategoryName, $category, $parent);
         function updateCategory($previousCategoryName, $category, $parent) {
             $conn = self::connectWithDataBase();
             $query = "UPDATE categories SET category = ?, parent = ? WHERE category = ?";
@@ -56,7 +53,6 @@
             return $result;
         }
 
-        // TODO: update the function to use the getCategories function instead.
         function isPrecededBy($category, $precedent) {
             $conn = self::connectWithDataBase();
             $query = "SELECT * FROM categories";
