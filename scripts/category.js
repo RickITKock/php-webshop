@@ -14,6 +14,8 @@ function setCategoryToUpdate(event) {
     categoryInput.value = event.target.innerHTML;
     previousCategoryNameInput.value = event.target.innerHTML;
     let categoryValue = categoryInput.value;
+
+    // TODO: Consideration - should I remove the line above?
     enableInput(parentInput);
 }
 
